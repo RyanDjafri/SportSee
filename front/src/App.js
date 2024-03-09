@@ -23,10 +23,10 @@ const Home = () => {
       </header>
       <Activity />
       <div className="diagrams-container">
-        <Time />
+        {/* <Time />
         <Diagram />
         <Score />
-        <Nutrition />
+        <Nutrition /> */}
       </div>
     </div>
   );
