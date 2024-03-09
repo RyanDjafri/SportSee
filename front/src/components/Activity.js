@@ -1,15 +1,8 @@
-import React from "react";
-import {
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  Bar,
-} from "recharts";
+import React, { useEffect, useState } from "react";
+import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 
 export default function App() {
+  const [legend, setLegend] = useState(null);
   const data = [
     {
       userId: 12,
@@ -62,35 +55,60 @@ export default function App() {
     lineHeight: "24px",
   };
 
-  const barStyles = {
-    barSize: "15",
-    borderRadius: "5px",
-  };
   const CustomTooltip = ({ active, payload }) => {
     if (active) {
       const tooltipContent = payload.map((entry, index) => {
-        if (entry.name === "calories" || entry.name === "kilogram") {
-          return <p key={index}>{`${entry.name}: ${entry.value}`}</p>;
+        let label = entry.name;
+
+        if (entry.name === "calories") {
+          label = "kCal";
+        } else if (entry.name === "kilogram") {
+          label = "kg";
         }
-        return null;
+
+        return <p className="tool" key={index}>{`${entry.value} ${label}`}</p>;
       });
 
-      return <div>{tooltipContent}</div>;
+      return <div className="tool-container">{tooltipContent}</div>;
     }
 
     return null;
   };
+
+  useEffect(() => {
+    setLegend(
+      <div className="legend">
+        <p className="legend-kg">
+          <span className="point-kg"></span>Poids (kg)
+        </p>
+        <p className="legend-kcal">
+          <span className="point-kcal"></span>Calories brûlées (kCal)
+        </p>
+      </div>
+    );
+  }, []);
+
   return (
     <div className="activity">
-      {/* <h3>Activité quotidienne</h3> */}
       <div className="activity-container">
+        <h3 className="activity-title">Activité quotidienne</h3>
         <BarChart width={800} height={300} data={data[0].sessions}>
           <Tooltip content={<CustomTooltip />} />
-          {/* <Legend verticalAlign="top" horizontalAlign="right" /> */}
-          <Bar dataKey="kilogram" fill="#E60000" barStyles={barStyles} />
-          <Bar dataKey="calories" fill="#282D30" barStyles={barStyles} />
+          <Legend content={legend} verticalAlign="top" align="right" />
+          <Bar
+            dataKey="kilogram"
+            fill="#E60000"
+            barSize={15}
+            radius={[5, 5, 0, 0]}
+          />
+          <Bar
+            dataKey="calories"
+            fill="#282D30"
+            barSize={15}
+            radius={[5, 5, 0, 0]}
+          />
           <YAxis dataKey="kilogram" orientation="right" style={axisStyles} />
-          <XAxis datakey="day" style={axisStyles} />
+          <XAxis dataKey="day" style={axisStyles} domain={[1, "dataMax"]} />
         </BarChart>
       </div>
     </div>
