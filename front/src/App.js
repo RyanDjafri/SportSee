@@ -22,12 +22,11 @@ const Home = () => {
         </p>
       </header>
       <Activity />
-      <div className="diagrams-container">
-        {/* <Time />
+      {/* <Time />
         <Diagram />
         <Score />
-        <Nutrition /> */}
-      </div>
+      */}
+      <Nutrition />
     </div>
   );
 };
