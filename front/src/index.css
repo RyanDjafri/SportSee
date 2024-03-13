@@ -197,6 +197,23 @@ border-radius: 5px;
     line-height: 24px;
 }
 
+.tool-length-container {
+    width: 39px;
+    height: 25px;
+    background: #FFF;
+    border-radius: 5px;
+    }
+    
+    .tool-length {
+        color: #000;
+        text-align: center;
+        font-family: "Roboto", cursive;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px; 
+    }
+    
 .time-container {
 width: 300px;
 height: 180px;
@@ -321,3 +338,28 @@ font-weight: 500;
 line-height: 24px; 
 }
 
+.time-container {
+    width:300px;
+    height:250px;
+border-radius: 5px;
+background: blue;
+box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+position: absolute;
+top:80%;
+left:15%;
+}
+.radar-container {
+    width:300px;
+    height:250px;
+border-radius: 5px;
+background: #F00;
+box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+position: absolute;
+top:80%;
+left:35%;
+}
+.legend-text {
+    position:absolute;
+    top:5px;
+    left:5px;
+}

@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import "./index.css";
 import Activity from "./components/Activity";
 import Time from "./components/Time";
-import Diagram from "./components/Diagram";
+import Diagram from "./components/Radar";
 import Score from "./components/Score";
 import Nutrition from "./components/Nutrition";
 
@@ -23,8 +23,9 @@ const Home = () => {
       </header>
       <Activity />
       <Nutrition />
-      {/* <Time />
-        <Diagram />
+      <Time />
+      <Diagram />
+      {/*
         <Score />
       */}
     </div>
