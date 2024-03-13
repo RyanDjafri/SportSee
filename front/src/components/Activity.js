@@ -1,8 +1,22 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 
 export default function App() {
   const [legend, setLegend] = useState(null);
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("../../public/mock.json")
+  //     .then((res) => {
+  //       setData(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, []);
+
   const data = [
     {
       userId: 12,

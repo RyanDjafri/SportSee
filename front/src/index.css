@@ -257,7 +257,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 24px; 
 }
-.carbo {
+.carbohydrates {
     display:flex;
     justify-content: space-around;
     align-items:center;
@@ -268,7 +268,7 @@ font-style: normal;
 font-weight: 700;
 line-height: 24px;
 }
-.carbo-title {
+.carbohydrates-title {
     color: #74798C;
 font-family: "Roboto", sans-serif;
 font-size: 14px;
@@ -276,7 +276,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 24px; 
 }
-.fats {
+.lipids {
     display:flex;
     justify-content: space-around;
     align-items:center;

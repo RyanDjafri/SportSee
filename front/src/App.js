@@ -22,11 +22,11 @@ const Home = () => {
         </p>
       </header>
       <Activity />
+      <Nutrition />
       {/* <Time />
         <Diagram />
         <Score />
       */}
-      <Nutrition />
     </div>
   );
 };
