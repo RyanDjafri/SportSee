@@ -92,11 +92,11 @@ export default function App() {
   useEffect(() => {
     setLegend(
       <div className="legend">
-        <p className="legend-kg">
-          <span className="point-kg"></span>Poids (kg)
+        <p className="legend-item">
+          <div className="point point-kg"></div> Poids (kg)
         </p>
-        <p className="legend-kcal">
-          <span className="point-kcal"></span>Calories brûlées (kCal)
+        <p className="legend-item">
+          <div className="point point-kcal"></div> Calories brûlées (kCal)
         </p>
       </div>
     );
