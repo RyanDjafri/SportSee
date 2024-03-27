@@ -4,61 +4,19 @@ import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 
 export default function App() {
   const [legend, setLegend] = useState(null);
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get("../../public/mock.json")
-  //     .then((res) => {
-  //       setData(res.data);
-  //       console.log(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, []);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("mock.json")
+      .then((res) => {
+        setData(res.data.USER_ACTIVITY[0]);
+        console.log(res.data.USER_ACTIVITY[0]);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
-  const data = [
-    {
-      userId: 12,
-      sessions: [
-        {
-          day: "2020-07-01",
-          kilogram: 80,
-          calories: 240,
-        },
-        {
-          day: "2020-07-02",
-          kilogram: 80,
-          calories: 220,
-        },
-        {
-          day: "2020-07-03",
-          kilogram: 81,
-          calories: 280,
-        },
-        {
-          day: "2020-07-04",
-          kilogram: 81,
-          calories: 290,
-        },
-        {
-          day: "2020-07-05",
-          kilogram: 80,
-          calories: 160,
-        },
-        {
-          day: "2020-07-06",
-          kilogram: 78,
-          calories: 162,
-        },
-        {
-          day: "2020-07-07",
-          kilogram: 76,
-          calories: 390,
-        },
-      ],
-    },
-  ];
   const axisStyles = {
     color: "#9B9EAC",
     textAlign: "right",
@@ -106,7 +64,7 @@ export default function App() {
     <div className="activity">
       <div className="activity-container">
         <h3 className="activity-title">Activité quotidienne</h3>
-        <BarChart width={800} height={300} data={data[0].sessions}>
+        <BarChart width={930} height={300} data={data.sessions}>
           <Tooltip content={<CustomTooltip />} />
           <Legend content={legend} verticalAlign="top" align="right" />
           <Bar

@@ -1,34 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NutriCard from "./NutriCard";
+import axios from "axios";
 
 const Nutrition = () => {
-  const data = [
-    {
-      id: 12,
-      userInfos: {
-        firstName: "Karl",
-        lastName: "Dovineau",
-        age: 31,
-      },
-      todayScore: 0.12,
-      keyData: {
-        calorieCount: 1930,
-        proteinCount: 155,
-        carbohydrateCount: 290,
-        lipidCount: 50,
-      },
-    },
-  ];
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("mock.json")
+      .then((res) => {
+        const user = res.data.USER_MAIN_DATA.find((user) => user.id === 12);
+        if (user) {
+          setUserData(user.keyData);
+        } else {
+          console.error("User not found");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <div className="nutrition-container">
-      <NutriCard data={data[0].keyData.calorieCount} nutrient="Calories" />
-      <NutriCard data={data[0].keyData.proteinCount} nutrient="Proteins" />
-      <NutriCard
-        data={data[0].keyData.carbohydrateCount}
-        nutrient="Carbohydrates"
-      />
-      <NutriCard data={data[0].keyData.lipidCount} nutrient="Lipids" />
+      {userData && (
+        <>
+          <NutriCard data={userData.calorieCount} nutrient="Calories" />
+          <NutriCard data={userData.proteinCount} nutrient="Proteines" />
+          <NutriCard data={userData.carbohydrateCount} nutrient="Glucides" />
+          <NutriCard data={userData.lipidCount} nutrient="Lipides" />
+        </>
+      )}
     </div>
   );
 };

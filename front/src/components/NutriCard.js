@@ -7,9 +7,9 @@ import Carbo from "../assets/icon-carbohydrate.png";
 const NutriCard = ({ data, nutrient }) => {
   const nutrientIcons = {
     Calories: Calorie,
-    Proteins: Protein,
-    Lipids: Lipid,
-    Carbohydrates: Carbo,
+    Proteines: Protein,
+    Lipides: Lipid,
+    Glucides: Carbo,
   };
 
   return (

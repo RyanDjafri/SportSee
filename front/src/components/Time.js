@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import {
   CartesianGrid,
   Line,
@@ -9,21 +10,34 @@ import {
 } from "recharts";
 
 const Time = () => {
-  const data = [
-    {
-      userId: 12,
-      sessions: [
-        { day: 1, sessionLength: 30 },
-        { day: 2, sessionLength: 23 },
-        { day: 3, sessionLength: 45 },
-        { day: 4, sessionLength: 50 },
-        { day: 5, sessionLength: 0 },
-        { day: 6, sessionLength: 0 },
-        { day: 7, sessionLength: 60 },
-      ],
-    },
-  ];
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("mock.json")
+      .then((res) => {
+        setData(res.data.USER_AVERAGE_SESSIONS[0]);
+        console.log(res.data.USER_AVERAGE_SESSIONS[0]);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
+  const getWeekdayAbbreviation = (day) => {
+    const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
+    return weekdays[day - 1];
+  };
+
+  const CustomXAxisTick = ({ x, y, payload }) => {
+    const weekdayAbbreviation = getWeekdayAbbreviation(payload.value);
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text x={0} y={0} dy={16} textAnchor="middle" fill="#fff">
+          {weekdayAbbreviation}
+        </text>
+      </g>
+    );
+  };
   const CustomTooltip = ({ active, payload }) => {
     if (active) {
       const tooltipContent = payload.map((entry, index) => {
@@ -48,7 +62,6 @@ const Time = () => {
 
   const legendStyles = {
     width: "147px",
-    flexShrink: 0,
     color: "#FFF",
     fontFamily: "Roboto",
     fontSize: "15px",
@@ -57,7 +70,6 @@ const Time = () => {
     lineHeight: "24px",
     opacity: 0.504,
   };
-
   return (
     <div className="time-container">
       <div className="legend-text" style={legendStyles}>
@@ -66,12 +78,23 @@ const Time = () => {
       <LineChart
         width={300}
         height={250}
-        data={data[0].sessions}
+        data={data.sessions}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       >
-        <XAxis dataKey="day" />
+        <CartesianGrid strokeOpacity={0} />
+        <XAxis
+          dataKey="day"
+          axisLine={false}
+          tickLine={{ fill: "#fff" }}
+          tick={<CustomXAxisTick />}
+        />
         <Tooltip content={<CustomTooltip />} />
-        <Line type="monotone" dataKey="sessionLength" stroke="#fff" />{" "}
+        <Line
+          type="monotone"
+          dataKey="sessionLength"
+          stroke="#fff"
+          dot={false}
+        />
       </LineChart>
     </div>
   );
