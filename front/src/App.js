@@ -5,7 +5,7 @@ import "./index.css";
 import Activity from "./components/Activity";
 import Time from "./components/Time";
 import Nutrition from "./components/Nutrition";
-import Radiar from "./components/Radial";
+import Radiar from "./components/RadarPerf";
 import Score from "./components/Score";
 
 const Home = () => {
@@ -26,7 +26,7 @@ const Home = () => {
         <Time />
         <Nutrition />
         <Radiar />
-        <Score />
+        {/* <Score /> */}
       </div>
     </div>
   );

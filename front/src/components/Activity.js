@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
+import {
+  BarChart,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Bar,
+  ResponsiveContainer,
+} from "recharts";
 
 export default function App() {
   const [legend, setLegend] = useState(null);
@@ -64,7 +72,7 @@ export default function App() {
     <div className="activity">
       <div className="activity-container">
         <h3 className="activity-title">Activité quotidienne</h3>
-        <BarChart width={930} height={300} data={data.sessions}>
+        <BarChart width={900} height={300} data={data.sessions}>
           <Tooltip content={<CustomTooltip />} />
           <Legend content={legend} verticalAlign="top" align="right" />
           <Bar

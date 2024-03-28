@@ -120,7 +120,7 @@ line-height: 24px;
     left: 15%;
     top: 30%;
     display: grid;
-    width:90vw;
+    width:90%;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, auto) 1fr; 
     grid-column-gap: 2rem;
@@ -129,7 +129,7 @@ line-height: 24px;
 
 .activity {
     height:320px;
-    width:100%;
+    width:98%;
     grid-area: 1 / 1 / 4 / 5;
     border-radius: 5px;
     background: #FBFBFB;
@@ -140,7 +140,7 @@ line-height: 24px;
     grid-area: 1 / 5 / 5 / 5; 
     display: flex;
     flex-direction: column;
-    transform: translateX(25%);
+    transform: translateX(15%);
     gap:2.5rem;
 }
 .time-container {
@@ -154,14 +154,14 @@ line-height: 24px;
 .radar-container {
     grid-area: 4 / 3 / 5 / 4; 
     border-radius: 5px;
-    background: blue;
+    background: #282D30;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
     width:300px;
     height:250px;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
     position: absolute; 
-    transform: translateX(-52.5%);
+    z-index:1;
 }
-.score-container {
+/* .score-container {
     grid-area: 4 / 4 / 5 / 4; 
     border-radius: 5px;
     background: green;
@@ -170,7 +170,7 @@ line-height: 24px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
     position: absolute; 
     transform: translateX(-25%);
-}
+} */
 .activity-title {
 color: #20253A;
 font-family: "Roboto", cursive;
@@ -184,7 +184,7 @@ margin-bottom:0.5rem;
 .legend {
     position: absolute;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     color: #20253A;
     font-family: "Roboto", cursive;
@@ -193,7 +193,7 @@ margin-bottom:0.5rem;
     font-weight: 500;
     line-height: 24px;
     gap: 1rem;
-    right: 0;
+    right: 5%;
     bottom: 30%;
     margin-bottom: 0.5rem;
   }
@@ -253,7 +253,7 @@ border-radius: 5px;
     }
 
 .nutri-div {
-    width: 258px;
+    width: 300px;
     height: 124px;
     border-radius: 5px;
     background: #FBFBFB;
@@ -347,3 +347,11 @@ line-height: 24px;
     left:5px;
 }
 
+
+
+@media screen and(max-width:1400px) {
+    .charts-container {
+        width:70vw;
+    }
+    
+}
