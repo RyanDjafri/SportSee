@@ -154,14 +154,25 @@ line-height: 24px;
 .radar-container {
     grid-area: 4 / 3 / 5 / 4; 
     border-radius: 5px;
+    background: blue;
     width:300px;
     height:250px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
     position: absolute; 
+    transform: translateX(-52.5%);
 }
-
+.score-container {
+    grid-area: 4 / 4 / 5 / 4; 
+    border-radius: 5px;
+    background: green;
+    width: 300px;
+    height: 250px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+    position: absolute; 
+    transform: translateX(-25%);
+}
 .activity-title {
-    color: #20253A;
+color: #20253A;
 font-family: "Roboto", cursive;
 font-size: 15px;
 font-style: normal;

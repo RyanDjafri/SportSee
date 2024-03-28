@@ -4,9 +4,9 @@ import Navbar from "./components/Navbar";
 import "./index.css";
 import Activity from "./components/Activity";
 import Time from "./components/Time";
-import Score from "./components/Score";
 import Nutrition from "./components/Nutrition";
-import Radial from "./components/Radial";
+import Radiar from "./components/Radial";
+import Score from "./components/Score";
 
 const Home = () => {
   return (
@@ -25,8 +25,8 @@ const Home = () => {
         <Activity />
         <Time />
         <Nutrition />
-        <Radial />
-        {/* <Score />  */}
+        <Radiar />
+        <Score />
       </div>
     </div>
   );

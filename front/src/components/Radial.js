@@ -1,34 +1,44 @@
-import React from "react";
-import { Legend, RadialBar, RadialBarChart, Tooltip } from "recharts";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import {
+  Legend,
+  PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
+} from "recharts";
 
 const Radial = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get("./mock.json").then((res) => {
+      setData(res.data.USER_PERFORMANCE[0]);
+      console.log(res.data.USER_PERFORMANCE[0]);
+    });
+  }, []);
   return (
     <div className="radar-container">
-      <RadialBarChart
-        width={730}
-        height={250}
-        innerRadius="12%"
-        outerRadius="88%"
-        startAngle={180}
-        endAngle={0}
-      >
-        <RadialBar
-          minAngle={15}
-          label={{ fill: "#E60000", position: "insideStart" }}
-          background
-          clockWise={true}
-          dataKey="score"
+      <RadarChart outerRadius={90} width={730} height={250} data={data}>
+        <PolarGrid />
+        <PolarAngleAxis dataKey="subject" />
+        <PolarRadiusAxis angle={30} domain={[0, 150]} />
+        <Radar
+          name="Mike"
+          dataKey="A"
+          stroke="#8884d8"
+          fill="#8884d8"
+          fillOpacity={0.6}
         />
-        <Legend
-          iconSize={10}
-          width={120}
-          height={140}
-          layout="vertical"
-          verticalAlign="middle"
-          align="right"
+        <Radar
+          name="Lily"
+          dataKey="B"
+          stroke="#82ca9d"
+          fill="#82ca9d"
+          fillOpacity={0.6}
         />
-        <Tooltip />
-      </RadialBarChart>
+        <Legend />
+      </RadarChart>
     </div>
   );
 };
