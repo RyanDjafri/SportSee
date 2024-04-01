@@ -29,9 +29,9 @@ export default function App() {
 
   return (
     <div className="activity">
-      <div className="activity-container">
-        <h3 className="activity-title">Activité quotidienne</h3>
-        <BarChart width={900} height={300} data={data.sessions}>
+      <h3 className="activity-title">Activité quotidienne</h3>
+      <div className="chart-container" style={{ marginLeft: "50px" }}>
+        <BarChart width={950} height={300} data={data.sessions}>
           <Tooltip
             content={({ active, payload }) => {
               if (active && payload && payload.length) {

@@ -16,7 +16,6 @@ const Time = () => {
       .get("mock.json")
       .then((res) => {
         setData(res.data.USER_AVERAGE_SESSIONS[0]);
-        console.log(res.data.USER_AVERAGE_SESSIONS[0]);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
