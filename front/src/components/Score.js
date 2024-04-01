@@ -1,33 +1,59 @@
 import React from "react";
-import { Legend, RadialBar, RadialBarChart, Tooltip } from "recharts";
+import { RadialBarChart, RadialBar, Tooltip, Legend } from "recharts";
+
+const data = [{ name: "Score", value: 12, fill: "#FF0000" }];
+
+const CustomizedContent = ({ cx, cy, innerRadius, outerRadius, value }) => {
+  return (
+    <g>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#282D30">
+        {`${value}%`}
+      </text>
+    </g>
+  );
+};
 
 const Score = () => {
   return (
-    <div className="score-container">
+    <div
+      className="score-container"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <RadialBarChart
-        width={730}
-        height={250}
-        innerRadius="12%"
-        outerRadius="88%"
-        startAngle={180}
-        endAngle={0}
+        width={400}
+        height={400}
+        cx={200}
+        cy={200}
+        innerRadius={60}
+        outerRadius={140}
+        barSize={10}
+        data={data}
       >
         <RadialBar
           minAngle={15}
-          label={{ fill: "#E60000", position: "insideStart" }}
+          label={{ position: "insideStart", fill: "#FF0000" }}
           background
-          clockWise={true}
-          dataKey="score"
+          clockWise
+          dataKey="value"
         />
+        <Tooltip />
         <Legend
           iconSize={10}
-          width={120}
-          height={140}
           layout="vertical"
           verticalAlign="middle"
           align="right"
         />
-        <Tooltip />
+        <CustomizedContent
+          cx={200}
+          cy={200}
+          innerRadius={60}
+          outerRadius={140}
+          value={data[0].value}
+        />
       </RadialBarChart>
     </div>
   );

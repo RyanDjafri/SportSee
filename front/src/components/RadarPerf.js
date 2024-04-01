@@ -1,13 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {
-  Legend,
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-} from "recharts";
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 
 const RadarPerf = () => {
   const [data, setData] = useState({});
@@ -22,15 +15,33 @@ const RadarPerf = () => {
     return null;
   }
 
+  const customizedPolarAngle = ({ x, y, payload }) => {
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text textAnchor="middle" fill="#fff">
+          {payload.value}
+        </text>
+      </g>
+    );
+  };
+
   return (
-    <div className="radar-container">
-      <RadarChart outerRadius={90} width={730} height={250} data={[data]}>
+    <div
+      className="radar-container"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textTransform: "capitalize",
+        fontFamily: "Roboto", 
+      }}
+    >
+      <RadarChart outerRadius={120} width={360} height={400} data={[data]}>
         <PolarGrid />
-        <PolarAngleAxis dataKey="kind" />
+        <PolarAngleAxis dataKey="kind" tick={customizedPolarAngle} />
         <Radar
           name={`User ${data.userId}`}
           dataKey="value"
-          stroke="#8884d8"
           fill="rgba(255, 1, 1, 0.70)"
           fillOpacity={0.6}
           data={data.data.map((entry) => ({

@@ -86,7 +86,7 @@ transform: rotate(-90deg);
 header {
     position:absolute;
     top:18%;
-    left:15%;
+    left:10%;
 }
 
 .home-title {
@@ -117,60 +117,61 @@ line-height: 24px;
 }
 .charts-container {
     position: absolute;
-    left: 15%;
+    left: 10%;
     top: 30%;
-    display: grid;
-    width:90%;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, auto) 1fr; 
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    width:80%;
 }
 
+.first-part {
+    display:flex;
+    gap:1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.second-part {
+    position:absolute;
+    display:flex;
+    justify-content: flex-start;
+    gap:1rem;
+    align-items:flex-start;
+    width:80%;
+    transform: translateY(-100%);
+}
 .activity {
     height:320px;
-    width:98%;
-    grid-area: 1 / 1 / 4 / 5;
+    width:100%;
     border-radius: 5px;
     background: #FBFBFB;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .nutrition-container {
-    grid-area: 1 / 5 / 5 / 5; 
     display: flex;
     flex-direction: column;
     transform: translateX(15%);
     gap:2.5rem;
 }
 .time-container {
-    grid-area: 4 / 1 / 5 / 2;
     border-radius: 5px;
     background: #F00;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-    position: absolute;
+    width:300px;
 }
 
 .radar-container {
-    grid-area: 4 / 3 / 5 / 4; 
     border-radius: 5px;
     background: #282D30;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
     width:300px;
     height:250px;
-    position: absolute; 
-    z-index:1;
 }
-/* .score-container {
-    grid-area: 4 / 4 / 5 / 4; 
+.score-container {
     border-radius: 5px;
-    background: green;
+    background: #FBFBFB;
     width: 300px;
     height: 250px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-    position: absolute; 
-    transform: translateX(-25%);
-} */
+}
 .activity-title {
 color: #20253A;
 font-family: "Roboto", cursive;
@@ -347,11 +348,56 @@ line-height: 24px;
     left:5px;
 }
 
+@media screen and (max-width: 1400px) {
+    header {
+        margin-left: 2rem;
+    }
 
-
-@media screen and(max-width:1400px) {
     .charts-container {
-        width:70vw;
+        position: absolute;
+        left: 15%;
+        top: 30%;
+        width:80%;
     }
     
+
+    .first-part {
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .second-part {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 2rem;
+        transform: translateY(20%);
+    }
+
+    .nutrition-container {
+        display: flex;
+        flex-direction: row;
+        width:100%;
+        gap: 1rem;
+        transform: translateX(-0.1%);
+    }
+
+    .nutri-div {
+        width: 25%;
+    }
+
+    .activity {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .activity-title {
+        margin-left:2.5rem;
+    }
+    .time-container, .score-container, .radar-container {
+        width:250px;
+    }
 }
