@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useApi(url) {
+function ApiHook(url) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -25,4 +25,4 @@ function useApi(url) {
   return { data, error };
 }
 
-export default useApi;
+export default ApiHook;

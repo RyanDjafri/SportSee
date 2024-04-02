@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { CartesianGrid, Line, LineChart, Tooltip, XAxis } from "recharts";
-import apiHook from "./apiHook";
+import ApiHook from "./apiHook";
 
 const Time = () => {
   const [data, setData] = useState([]);
 
-  const { data: apiData } = apiHook("mock.json");
+  const { data: apiData } = ApiHook("mock.json");
 
   useEffect(() => {
     if (apiData && apiData.USER_AVERAGE_SESSIONS) {

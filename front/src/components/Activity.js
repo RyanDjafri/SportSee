@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
-import apiHook from "./apiHook";
+import ApiHook from "./apiHook";
 
 export default function App() {
-  const { data, error } = apiHook("mock.json");
+  const { data, error } =ApiHook("mock.json");
   const [userData, setUserData] = useState(null);
   useEffect(() => {
     if (data === null && error === null) {

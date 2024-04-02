@@ -15,7 +15,7 @@ const Home = () => {
     axios.get("./mock.json").then((res) => {
       setData(res.data.USER_MAIN_DATA[0]);
     });
-  }, []);
+  }, [data]);
   return (
     <div>
       <Sidebar />

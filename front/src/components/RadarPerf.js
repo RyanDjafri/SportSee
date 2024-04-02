@@ -1,9 +1,9 @@
 import React from "react";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
-import apiHook from "./apiHook";
+import ApiHook from "./apiHook";
 
 const RadarPerf = () => {
-  const { data, error } = apiHook("./mock.json");
+  const { data, error } = ApiHook("./mock.json");
 
   if (error) {
     console.error("Error fetching data:", error);

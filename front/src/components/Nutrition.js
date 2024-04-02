@@ -1,9 +1,9 @@
 import React from "react";
 import NutriCard from "./NutriCard";
-import apiHook from "./apiHook";
+import ApiHook from "./apiHook";
 
 const Nutrition = () => {
-  const { data, error } = apiHook("mock.json");
+  const { data, error } = ApiHook("mock.json");
 
   if (error) {
     console.error("Error fetching data:", error);
