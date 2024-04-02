@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
+import apiHook from "./apiHook";
 
 export default function App() {
-  const [data, setData] = useState([]);
-
+  const { data, error } = apiHook("mock.json");
+  const [userData, setUserData] = useState(null);
   useEffect(() => {
-    axios
-      .get("mock.json")
-      .then((res) => {
-        setData(res.data.USER_ACTIVITY[0]);
-        console.log(res.data.USER_ACTIVITY[0]);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+    if (data === null && error === null) {
+      axios
+        .get("mock.json")
+        .then((res) => {
+          setUserData(res.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    }
+  }, [data, error]);
 
   const axisStyles = {
     color: "#9B9EAC",
@@ -31,7 +33,11 @@ export default function App() {
     <div className="activity">
       <h3 className="activity-title">Activité quotidienne</h3>
       <div className="chart-container" style={{ marginLeft: "50px" }}>
-        <BarChart width={950} height={300} data={data.sessions}>
+        <BarChart
+          width={950}
+          height={300}
+          data={data?.USER_ACTIVITY[0]?.sessions}
+        >
           <Tooltip
             content={({ active, payload }) => {
               if (active && payload && payload.length) {

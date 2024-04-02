@@ -1,26 +1,17 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { CartesianGrid, Line, LineChart, Tooltip, XAxis } from "recharts";
+import apiHook from "./apiHook";
 
 const Time = () => {
   const [data, setData] = useState([]);
+
+  const { data: apiData } = apiHook("mock.json");
+
   useEffect(() => {
-    axios
-      .get("mock.json")
-      .then((res) => {
-        setData(res.data.USER_AVERAGE_SESSIONS[0]);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+    if (apiData && apiData.USER_AVERAGE_SESSIONS) {
+      setData(apiData.USER_AVERAGE_SESSIONS[0]);
+    }
+  }, [apiData]);
 
   const getWeekdayAbbreviation = (day) => {
     const weekdays = ["L", "M", "M", "J", "V", "S", "D"];

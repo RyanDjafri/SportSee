@@ -1,25 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NutriCard from "./NutriCard";
-import axios from "axios";
+import apiHook from "./apiHook";
 
 const Nutrition = () => {
-  const [userData, setUserData] = useState(null);
+  const { data, error } = apiHook("mock.json");
 
-  useEffect(() => {
-    axios
-      .get("mock.json")
-      .then((res) => {
-        const user = res.data.USER_MAIN_DATA.find((user) => user.id === 12);
-        if (user) {
-          setUserData(user.keyData);
-        } else {
-          console.error("User not found");
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+  if (error) {
+    console.error("Error fetching data:", error);
+  }
+
+  const userData = data?.USER_MAIN_DATA.find((user) => user.id === 12)?.keyData;
 
   return (
     <div className="nutrition-container">

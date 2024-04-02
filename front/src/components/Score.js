@@ -1,19 +1,17 @@
 import React from "react";
 import { RadialBarChart, RadialBar, Tooltip, Legend } from "recharts";
 
-const data = [{ name: "Score", value: 12, fill: "#FF0000" }];
-
-const CustomizedContent = ({ cx, cy, innerRadius, outerRadius, value }) => {
-  return (
-    <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#282D30">
-        {`${value}%`}
-      </text>
-    </g>
-  );
-};
-
 const Score = () => {
+  const CustomizedContent = ({ cx, cy, value = "12%" }) => {
+    return (
+      <g>
+        <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#282D30">
+          {`${value}`}
+        </text>
+      </g>
+    );
+  };
+
   return (
     <div
       className="score-container"
@@ -31,7 +29,6 @@ const Score = () => {
         innerRadius={60}
         outerRadius={140}
         barSize={10}
-        data={data}
       >
         <RadialBar
           minAngle={15}
@@ -52,7 +49,7 @@ const Score = () => {
           cy={200}
           innerRadius={60}
           outerRadius={140}
-          value={data[0].value}
+          value="12%"
         />
       </RadialBarChart>
     </div>

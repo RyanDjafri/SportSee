@@ -119,8 +119,8 @@ line-height: 24px;
     position: absolute;
     left: 10%;
     top: 30%;
-    width:80%;
-}
+   width:80%;
+} 
 
 .first-part {
     display:flex;
@@ -346,3 +346,39 @@ line-height: 24px;
     left:5px;
 }
 
+
+
+@media  screen and (max-width:1350px) {
+    header {
+        margin-left:1rem;
+    }
+    .charts-container {
+        position: absolute;
+        left: 10%;
+        top: 30%;
+        width:60%;
+        margin-left:1rem;
+    }
+    .nutrition-container {
+        flex-direction: row;
+        position: relative;
+        display: flex;
+        transform: translateY(20%);
+        gap:3rem;
+    }
+    .first-part {
+        display:flex;
+        flex-direction: column;
+        gap:1rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .second-part {
+        position:absolute;
+        display:flex;
+        justify-content: center;
+        gap:3.2rem;
+        align-items:center;
+        width:80%;
+    }    
+}

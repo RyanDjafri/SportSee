@@ -1,15 +1,14 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
+import apiHook from "./apiHook";
 
 const RadarPerf = () => {
-  const [data, setData] = useState({});
+  const { data, error } = apiHook("./mock.json");
 
-  useEffect(() => {
-    axios.get("./mock.json").then((res) => {
-      setData(res.data.USER_PERFORMANCE[0]);
-    });
-  }, []);
+  if (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
 
   if (!data || Object.keys(data).length === 0) {
     return null;
@@ -33,19 +32,24 @@ const RadarPerf = () => {
         justifyContent: "center",
         alignItems: "center",
         textTransform: "capitalize",
-        fontFamily: "Roboto", 
+        fontFamily: "Roboto",
       }}
     >
-      <RadarChart outerRadius={120} width={360} height={400} data={[data]}>
+      <RadarChart
+        outerRadius={120}
+        width={360}
+        height={400}
+        data={[data.USER_PERFORMANCE[0]]}
+      >
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" tick={customizedPolarAngle} />
         <Radar
-          name={`User ${data.userId}`}
+          name={`User ${data.USER_PERFORMANCE[0].userId}`}
           dataKey="value"
           fill="rgba(255, 1, 1, 0.70)"
           fillOpacity={0.6}
-          data={data.data.map((entry) => ({
-            kind: data.kind[entry.kind.toString()],
+          data={data.USER_PERFORMANCE[0].data.map((entry) => ({
+            kind: data.USER_PERFORMANCE[0].kind[entry.kind.toString()],
             value: entry.value,
           }))}
         />
