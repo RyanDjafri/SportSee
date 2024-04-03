@@ -38,13 +38,15 @@ const Time = () => {
         }
 
         return (
-          <p className="tool-length" key={index}>
-            {`${entry.value} ${label}`}
-          </p>
+          <div className="tool-length-container">
+            <span className="tool-length" key={index}>
+              {`${entry.value} ${label}`}
+            </span>
+          </div>
         );
       });
 
-      return <div className="tool-length-container">{tooltipContent}</div>;
+      return tooltipContent;
     }
 
     return null;

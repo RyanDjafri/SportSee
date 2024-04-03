@@ -1,11 +1,5 @@
-import React, { useEffect } from "react";
-import {
-  RadialBarChart,
-  RadialBar,
-  Tooltip,
-  Legend,
-  PolarAngleAxis,
-} from "recharts";
+import React from "react";
+import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 
 const Score = () => {
   const data = [{ value: 12, fill: "#FF0000" }];

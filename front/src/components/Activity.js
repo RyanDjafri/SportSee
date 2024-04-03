@@ -4,7 +4,7 @@ import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 import ApiHook from "./apiHook";
 
 export default function App() {
-  const { data, error } =ApiHook("mock.json");
+  const { data, error } = ApiHook("mock.json");
   const [userData, setUserData] = useState(null);
   useEffect(() => {
     if (data === null && error === null) {
