@@ -31,16 +31,18 @@ export default function App() {
   const customLegend = () => {
     return (
       <div className="legend">
-        <p className="legend-item">
-          <span className="point point-kg"> Poids (kg)</span>
-        </p>
-        <p className="legend-item">
-          <span className="point point-kcal"> Calories brûlées</span>
-          (kCal)
-        </p>
+        <div className="legend-item">
+          <span className="point point-kg"></span>
+          <span>Poids (kg)</span>
+        </div>
+        <div className="legend-item">
+          <span className="point point-kcal"></span>
+          <span>Calories brûlées (kCal)</span>
+        </div>
       </div>
     );
   };
+
   return (
     <div className="activity">
       <h3 className="activity-title">Activité quotidienne</h3>

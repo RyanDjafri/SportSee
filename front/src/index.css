@@ -200,7 +200,7 @@ header {
 
 .legend {
     position: absolute;
-    display: flex;
+    display:flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
@@ -377,6 +377,44 @@ header {
 }
 
 
-@media screen and (max-width: 1022px) {
-  
-}
+@media screen and (max-width:1500px) {
+    header {
+        margin-left:2rem;
+    }
+    .charts-container{
+        padding:2rem;
+    }
+    .first-part {
+        display:flex;
+        flex-direction: column;
+    }
+    .nutrition-container {
+        flex-direction: row;
+        width:90%;
+    }
+    .second-part {
+        transform:translateY(10%)
+    }
+    }
+
+
+    
+@media screen and (max-width:1180px) {
+    header {
+        margin-left:2rem;
+    }
+    .charts-container{
+        padding:2rem;
+    }
+    .first-part {
+        display:flex;
+        flex-direction: column;
+    }
+    .nutrition-container {
+        flex-direction: row;
+        width:109%;
+    }
+    .second-part {
+        transform:translateY(10%)
+    }
+    }
