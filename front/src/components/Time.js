@@ -38,10 +38,8 @@ const Time = () => {
         }
 
         return (
-          <div className="tool-length-container">
-            <span className="tool-length" key={index}>
-              {`${entry.value} ${label}`}
-            </span>
+          <div className="tool-length-container" key={index}>
+            <span className="tool-length">{`${entry.value} ${label}`}</span>
           </div>
         );
       });

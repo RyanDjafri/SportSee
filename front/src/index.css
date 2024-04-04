@@ -12,37 +12,42 @@
     height: 100vh;
     background: #020203;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    display:flex;
+    display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     justify-content: space-around;
-    gap:4rem;
+    gap: 4rem;
 }
+
 .sidebar ul {
-   position:relative;
-   transform:translateY(50%);
+    position: relative;
+    transform: translateY(50%);
 }
+
 .sidebar-txt {
-height:30px;
+    height: 30px;
     color: #FFF;
-font-family: "Roboto", sans-serif;
-font-size: 10px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px;
-transform: rotate(-90deg);
+    font-family: "Roboto", sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    transform: rotate(-90deg);
 }
+
 .logo {
-    display:flex;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin:27px;
-    width:20%;
-    gap:0.5rem;
+    margin: 27px;
+    width: 20%;
+    gap: 0.5rem;
 }
+
 .list {
-    width:80%;
+    width: 80%;
 }
+
 .navbar {
     position: absolute;
     display: flex;
@@ -53,6 +58,7 @@ transform: rotate(-90deg);
     background: #020203;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
 .icon {
     width: 57.196px;
     height: 57.703px;
@@ -64,17 +70,18 @@ transform: rotate(-90deg);
 }
 
 .nav-list {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    align-items:center;
-    gap:3rem;
+    align-items: center;
+    gap: 3rem;
 }
+
 .nav-list-item {
-    font-size: 24px; 
+    font-size: 24px;
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
-    margin-right: 20px; 
+    margin-right: 20px;
 }
 
 .nav-list-item a {
@@ -84,59 +91,64 @@ transform: rotate(-90deg);
 }
 
 header {
-    position:absolute;
-    top:18%;
-    left:10%;
+    position: absolute;
+    top: 18%;
+    left: 10%;
 }
 
 .home-title {
     color: #000;
-font-family: "Roboto", cursive;
-font-size: 48px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px; 
+    font-family: "Roboto", cursive;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
 }
 
 .username {
     color: #FF0101;
-font-family: "Roboto", sans-serif;
-font-size: 48px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px;
+    font-family: "Roboto", sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
 }
+
 .welcome-p {
-    margin-top:2.5rem;
+    margin-top: 2.5rem;
     color: #000;
-font-family: "Roboto", sans-serif;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; 
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
 }
+
 .charts-container {
     position: absolute;
     left: 10%;
     top: 30%;
-   width:80%;
-} 
+    width: 85%;
+}
 
 .first-part {
-    display:flex;
-    gap:1rem;
-    justify-content: flex-start;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
     align-items: flex-start;
 }
+
 .second-part {
-    position:absolute;
-    display:flex;
+    position: absolute;
+    display: flex;
     justify-content: flex-start;
-    gap:3.2rem;
-    align-items:flex-start;
-    width:80%;
+    gap: 3.2rem;
+    align-items: flex-start;
+    width: 75%;
     transform: translateY(-100%);
 }
+
 .activity {
     border-radius: 5px;
     background: #FBFBFB;
@@ -146,25 +158,26 @@ line-height: 24px;
 .nutrition-container {
     display: flex;
     flex-direction: column;
-    transform: translateX(15%);
-    gap:2.5rem;
+    gap: 2.5rem;
 }
+
 .time-container {
     border-radius: 5px;
     background: #F00;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-    width:300px;
+    width: 300px;
 }
 
 .radar-container {
     border-radius: 5px;
     background: #282D30;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-    width:300px;
-    height:250px;
+    width: 300px;
+    height: 250px;
 }
+
 .score-container {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
@@ -173,21 +186,24 @@ line-height: 24px;
     height: 250px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
 }
+
 .activity-title {
-color: #20253A;
-font-family: "Roboto", cursive;
-font-size: 15px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px; 
-position:relative;
-margin-bottom:0.5rem;
+    color: #20253A;
+    font-family: "Roboto", cursive;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    position: relative;
+    margin-bottom: 0.5rem;
 }
+
 .legend {
     position: absolute;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: row;
     color: #20253A;
     font-family: "Roboto", cursive;
     font-size: 15px;
@@ -198,33 +214,36 @@ margin-bottom:0.5rem;
     right: 5%;
     bottom: 30%;
     margin-bottom: 0.5rem;
-  }
-  
-  .legend-item {
+}
+
+.legend-item {
     display: flex;
-    align-items: center;
-  }
-  
-  .point {
+    align-items:center;
+    flex-direction: row;
+}
+
+.point {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     margin-right: 5px;
-  }
-  
-  .point-kg {
+}
+
+.point-kg {
     background-color: #282D30;
-  }
-  
-  .point-kcal {
+    
+}
+
+.point-kcal {
     background-color: #E60000;
-  }
-  
+    display:flex;
+}
+
 .tool-container {
-width: 60px;
-height: 63px;
-background: #E60000;
-border-radius: 5px;
+    width: 60px;
+    height: 63px;
+    background: #E60000;
+    border-radius: 5px;
 }
 
 .tool {
@@ -242,17 +261,17 @@ border-radius: 5px;
     height: 25px;
     background: #FFF;
     border-radius: 5px;
-    }
-    
-    .tool-length {
-        color: #000;
-        text-align: center;
-        font-family: "Roboto", cursive;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 24px; 
-    }
+}
+
+.tool-length {
+    color: #000;
+    text-align: center;
+    font-family: "Roboto", cursive;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
 
 .nutri-div {
     width: 300px;
@@ -266,10 +285,11 @@ border-radius: 5px;
     width: 60px;
     height: 60px;
 }
+
 .calories {
-    display:flex;
+    display: flex;
     justify-content: space-around;
-    align-items:center;
+    align-items: center;
     color: #282D30;
     font-family: "Roboto", sans-serif;
     font-size: 20px;
@@ -277,18 +297,20 @@ border-radius: 5px;
     font-weight: 700;
     line-height: 24px;
 }
+
 .calories-title {
     color: #74798C;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px; 
+    line-height: 24px;
 }
+
 .proteines {
-    display:flex;
+    display: flex;
     justify-content: space-around;
-    align-items:center;
+    align-items: center;
     color: #282D30;
     font-family: "Roboto", sans-serif;
     font-size: 20px;
@@ -296,18 +318,20 @@ border-radius: 5px;
     font-weight: 700;
     line-height: 24px;
 }
+
 .proteines-title {
     color: #74798C;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-line-height: 24px; 
+    line-height: 24px;
 }
+
 .glucides {
-    display:flex;
+    display: flex;
     justify-content: space-around;
-    align-items:center;
+    align-items: center;
     color: #282D30;
     font-family: "Roboto", sans-serif;
     font-size: 20px;
@@ -315,18 +339,20 @@ line-height: 24px;
     font-weight: 700;
     line-height: 24px;
 }
+
 .glucides-title {
     color: #74798C;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px; 
+    line-height: 24px;
 }
+
 .lipides {
-    display:flex;
+    display: flex;
     justify-content: space-around;
-    align-items:center;
+    align-items: center;
     color: #282D30;
     font-family: "Roboto", sans-serif;
     font-size: 20px;
@@ -334,54 +360,23 @@ line-height: 24px;
     font-weight: 700;
     line-height: 24px;
 }
+
 .lipides-title {
     color: #74798C;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px; 
+    line-height: 24px;
 }
 
 .legend-text {
-    position:absolute;
-    top:5px;
-    left:5px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
 }
 
 
-
-@media  screen and (max-width:1350px) {
-    header {
-        margin-left:1rem;
-    }
-    .charts-container {
-        position: absolute;
-        left: 10%;
-        top: 30%;
-        width:60%;
-        margin-left:1rem;
-    }
-    .nutrition-container {
-        flex-direction: row;
-        position: relative;
-        display: flex;
-        transform: translateY(20%);
-        gap:3rem;
-    }
-    .first-part {
-        display:flex;
-        flex-direction: column;
-        gap:1rem;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-    .second-part {
-        position:absolute;
-        display:flex;
-        justify-content: center;
-        gap:3.2rem;
-        align-items:center;
-        width:80%;
-    }    
+@media screen and (max-width: 1022px) {
+  
 }

@@ -17,7 +17,7 @@ export default function App() {
           console.error("Error fetching data:", error);
         });
     }
-  }, [data, error]);
+  }, []);
 
   const axisStyles = {
     color: "#9B9EAC",
@@ -28,7 +28,19 @@ export default function App() {
     fontWeight: "500",
     lineHeight: "24px",
   };
-
+  const customLegend = () => {
+    return (
+      <div className="legend">
+        <p className="legend-item">
+          <span className="point point-kg"> Poids (kg)</span>
+        </p>
+        <p className="legend-item">
+          <span className="point point-kcal"> Calories brûlées</span>
+          (kCal)
+        </p>
+      </div>
+    );
+  };
   return (
     <div className="activity">
       <h3 className="activity-title">Activité quotidienne</h3>
@@ -56,21 +68,7 @@ export default function App() {
               return null;
             }}
           />
-          <Legend
-            verticalAlign="top"
-            align="right"
-            content={
-              <div className="legend">
-                <p className="legend-item">
-                  <div className="point point-kg"></div> Poids (kg)
-                </p>
-                <p className="legend-item">
-                  <div className="point point-kcal"></div> Calories brûlées
-                  (kCal)
-                </p>
-              </div>
-            }
-          />
+          <Legend verticalAlign="top" align="right" content={customLegend} />
           <Bar
             dataKey="kilogram"
             fill="#282D30"
