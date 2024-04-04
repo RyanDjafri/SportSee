@@ -48,7 +48,7 @@ export default function App() {
       <h3 className="activity-title">Activité quotidienne</h3>
       <div className="chart-container" style={{ marginLeft: "50px" }}>
         <BarChart
-          width={950}
+          width={880}
           height={300}
           data={data?.USER_ACTIVITY[0]?.sessions}
         >
