@@ -401,9 +401,10 @@ header {
     
 @media screen and (max-width:1180px) {
     header {
-        margin-left:2rem;
+        margin-left:-2rem;
     }
     .charts-container{
+        margin-left:-4rem;
         padding:2rem;
     }
     .first-part {
@@ -417,4 +418,40 @@ header {
     .second-part {
         transform:translateY(10%)
     }
+    .sidebar {
+        width: 60px;
     }
+    .sidebar-icon {
+        width:40px;
+        height: 40px;
+    }
+    }
+
+
+    @media screen and (max-width:1103px) {
+        header {
+            margin-left:-2rem;
+        }
+        .charts-container{
+            margin-left:-4rem;
+            padding:2rem;
+        }
+        .first-part {
+            display:flex;
+            flex-direction: column;
+        }
+        .nutrition-container {
+            flex-direction: row;
+            width:116%;
+        }
+        .second-part {
+            transform:translateY(10%)
+        }
+        .sidebar {
+            width: 60px;
+        }
+        .sidebar-icon {
+            width:40px;
+            height: 40px;
+        }
+        }
