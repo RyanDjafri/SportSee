@@ -6,16 +6,22 @@ import Time from "./components/Time";
 import Nutrition from "./components/Nutrition";
 import Radiar from "./components/RadarPerf";
 import Score from "./components/Score";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import ApiHook from "../src/components/apiHook";
 
 const Home = () => {
   const [data, setData] = useState({ id: -1 });
+  const { data: apiData, error } = ApiHook("mock.json");
+
   useEffect(() => {
-    axios.get("mock.json").then((res) => {
-      setData(res.data.USER_MAIN_DATA[0]);
-    });
-  }, []);
+    if (apiData) {
+      setData(apiData.USER_MAIN_DATA[0]);
+    }
+  }, [apiData]);
+
+  if (error) {
+    console.log(error);
+  }
 
   return (
     <div>
