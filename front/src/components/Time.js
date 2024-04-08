@@ -28,6 +28,7 @@ const Time = () => {
       </g>
     );
   };
+
   const CustomTooltip = ({ active, payload }) => {
     if (active) {
       const tooltipContent = payload.map((entry, index) => {
@@ -44,12 +45,11 @@ const Time = () => {
         );
       });
 
-      return tooltipContent;
+      return <div className="custom-tooltip">{tooltipContent}</div>;
     }
 
     return null;
   };
-
   const legendStyles = {
     width: "147px",
     color: "#FFF",
@@ -60,6 +60,15 @@ const Time = () => {
     lineHeight: "24px",
     opacity: 0.504,
   };
+  const axisStyles = {
+    fontFamily: "Roboto",
+    color: "#FFF",
+    fontSize: "12px",
+    fontStyle: "normal",
+    fontWeight: "500",
+    lineHeight: "24px",
+  };
+
   return (
     <div className="time-container">
       <div className="legend-text" style={legendStyles}>
@@ -71,12 +80,12 @@ const Time = () => {
         data={data.sessions}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       >
-        <CartesianGrid strokeOpacity={0} />
         <XAxis
           dataKey="day"
           axisLine={false}
-          tickLine={{ fill: "#fff" }}
+          tickLine={false}
           tick={<CustomXAxisTick />}
+          style={axisStyles}
         />
         <Tooltip content={<CustomTooltip />} />
         <Line
@@ -84,6 +93,7 @@ const Time = () => {
           dataKey="sessionLength"
           stroke="#fff"
           dot={false}
+          isAnimationActive={false}
         />
       </LineChart>
     </div>

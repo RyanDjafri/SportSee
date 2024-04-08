@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 import ApiHook from "./apiHook";
 
 export default function App() {
   const { data, error } = ApiHook("mock.json");
-  const [userData, setUserData] = useState(null);
+  const [processedData, setProcessedData] = useState(null);
+
   useEffect(() => {
-    if (data === null && error === null) {
-      axios
-        .get("mock.json")
-        .then((res) => {
-          setUserData(res.data);
+    if (data) {
+      const processedData = data.USER_ACTIVITY[0].sessions.map(
+        (session, index) => ({
+          ...session,
+          x: index + 1,
         })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
+      );
+      setProcessedData(processedData);
     }
-  }, []);
+  }, [data]);
 
   const axisStyles = {
     color: "#9B9EAC",
@@ -28,6 +27,7 @@ export default function App() {
     fontWeight: "500",
     lineHeight: "24px",
   };
+
   const customLegend = () => {
     return (
       <div className="legend">
@@ -47,11 +47,7 @@ export default function App() {
     <div className="activity">
       <h3 className="activity-title">Activité quotidienne</h3>
       <div className="chart-container" style={{ marginLeft: "30px" }}>
-        <BarChart
-          width={900}
-          height={300}
-          data={data?.USER_ACTIVITY[0]?.sessions}
-        >
+        <BarChart width={900} height={300} data={processedData}>
           <Tooltip
             content={({ active, payload }) => {
               if (active && payload && payload.length) {
@@ -60,7 +56,7 @@ export default function App() {
                     {payload.map((entry, index) => (
                       <p className="tool" key={index}>
                         {`${entry.value} ${
-                          entry.name === "kilogram" ? "kg" : "kCal"
+                          entry.dataKey === "kilogram" ? "kg" : "kCal"
                         }`}
                       </p>
                     ))}
@@ -84,7 +80,7 @@ export default function App() {
             radius={[5, 5, 0, 0]}
           />
           <YAxis orientation="right" style={axisStyles} />
-          <XAxis style={axisStyles} />
+          <XAxis style={axisStyles} dataKey="x" />
         </BarChart>
       </div>
     </div>
