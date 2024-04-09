@@ -12,6 +12,8 @@ const NutriCard = ({ data, nutrient }) => {
     Glucides: Carbo,
   };
 
+  const unit = nutrient === "Calories" ? "kCal" : "g";
+
   return (
     <div className={`${nutrient.toLowerCase()} nutri-div`}>
       <img
@@ -20,7 +22,10 @@ const NutriCard = ({ data, nutrient }) => {
         className="nutri-img"
       />
       <div className={`${nutrient.toLowerCase()}-values`}>
-        <p className={`${nutrient.toLowerCase()}`}>{data}kCal</p>
+        <p className={`${nutrient.toLowerCase()}`}>
+          {data}
+          {unit}
+        </p>
         <p className={`${nutrient.toLowerCase()}-title`}>{nutrient}</p>
       </div>
     </div>
