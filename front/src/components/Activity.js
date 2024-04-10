@@ -44,7 +44,7 @@ export default function App() {
   };
 
   if (error) {
-    return <div>data indisponible</div>;
+    return <div className="error-message">Data indisponible, erreur API</div>;
   }
 
   return (
