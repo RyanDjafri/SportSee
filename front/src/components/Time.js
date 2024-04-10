@@ -78,7 +78,7 @@ const Time = () => {
         width={300}
         height={250}
         data={data.sessions}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        margin={{ top: 2, right: 60, left: 20, bottom: 5 }}
       >
         <XAxis
           dataKey="day"

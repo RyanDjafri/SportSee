@@ -445,10 +445,11 @@ header {
     width: 116%;
   }
   .second-part {
+    width:100%;
     transform: translateY(10%);
   }
   .sidebar {
-    width: 60px;
+    width: 65px;
   }
   .sidebar-icon {
     width: 40px;
@@ -457,6 +458,6 @@ header {
   .time-container,
   .radar-container,
   .score-container {
-    width: 270px;
+    width: 265px;
   }
 }
