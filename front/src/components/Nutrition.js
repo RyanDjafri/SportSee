@@ -6,7 +6,7 @@ const Nutrition = () => {
   const { data, error } = ApiHook("mock.json");
 
   if (error) {
-    console.error("Error fetching data:", error);
+    return <div>data indisponible</div>;
   }
 
   const userData = data?.USER_MAIN_DATA.find((user) => user.id === 12)?.keyData;

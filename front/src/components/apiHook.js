@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+//todo message d'erreur en cas d'insiponibilité d'API
 function ApiHook(url) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);

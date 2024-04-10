@@ -5,11 +5,14 @@ import ApiHook from "./apiHook";
 const Time = () => {
   const [data, setData] = useState([]);
 
-  const { data: apiData } = ApiHook("mock.json");
+  const { data: apiData, error } = ApiHook("mock.json");
 
   useEffect(() => {
     if (apiData && apiData.USER_AVERAGE_SESSIONS) {
       setData(apiData.USER_AVERAGE_SESSIONS[0]);
+    }
+    if (error) {
+      return <div>data indisponible</div>;
     }
   }, [apiData]);
 

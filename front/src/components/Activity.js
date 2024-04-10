@@ -3,7 +3,7 @@ import { BarChart, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 import ApiHook from "./apiHook";
 
 export default function App() {
-  const { data, error } = ApiHook("mock.json");
+  const { data, error } = ApiHook("mock.jso");
   const [processedData, setProcessedData] = useState(null);
 
   useEffect(() => {
@@ -43,11 +43,19 @@ export default function App() {
     );
   };
 
+  if (error) {
+    return <div>data indisponible</div>;
+  }
+
   return (
     <div className="activity">
       <h3 className="activity-title">Activité quotidienne</h3>
-      <div className="chart-container" style={{ marginLeft: "30px" }}>
-        <BarChart width={900} height={300} data={processedData}>
+      <div
+        className="chart-container"
+        style={{ marginLeft: "30px" }}
+        data={processedData}
+      >
+        <BarChart width={900} height={300}>
           <Tooltip
             content={({ active, payload }) => {
               if (active && payload && payload.length) {

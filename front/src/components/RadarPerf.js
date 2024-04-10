@@ -6,8 +6,7 @@ const RadarPerf = () => {
   const { data, error } = ApiHook("./mock.json");
 
   if (error) {
-    console.error("Error fetching data:", error);
-    return null;
+    return <div>data indisponible</div>;
   }
 
   if (!data || Object.keys(data).length === 0) {
